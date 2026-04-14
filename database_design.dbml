@@ -1,0 +1,74 @@
+// Northshore Logistics Ltd - Database Schema Design (DBML)
+// Ref: Phase 1 SDLC - Design
+
+Table users {
+  id integer [primary key]
+  username varchar [unique]
+  password_hash varchar
+  role varchar // Admin, Manager, Warehouse Staff, Driver
+  full_name varchar
+}
+
+Table warehouses {
+  id integer [primary key]
+  location_name varchar
+  address text
+}
+
+Table inventory {
+  id integer [primary key]
+  warehouse_id integer [ref: > warehouses.id]
+  item_name varchar
+  quantity integer
+  reorder_level integer
+  location_within_warehouse varchar
+}
+
+Table vehicles {
+  id integer [primary key]
+  license_plate varchar [unique]
+  capacity_kg integer
+  maintenance_schedule date
+  is_available boolean [default: true]
+}
+
+Table drivers {
+  id integer [primary key]
+  user_id integer [ref: - users.id]
+  license_number varchar
+  employment_status varchar // Active, On Leave, Resigned
+}
+
+Table shipments {
+  id integer [primary key]
+  order_number varchar [unique]
+  sender_name varchar
+  sender_address text
+  receiver_name varchar
+  receiver_address text
+  item_description text
+  status varchar // Pending, In Transit, Delivered, Delayed, Returned
+  delivery_date date
+  assigned_driver_id integer [ref: > drivers.id]
+  route_details text
+  transport_cost decimal
+  surcharges decimal
+  payment_status varchar // Unpaid, Paid, Pending
+}
+
+Table incidents {
+  id integer [primary key]
+  shipment_id integer [ref: > shipments.id]
+  incident_type varchar // Delay, Damaged, Failed Delivery, Route Change
+  description text
+  recorded_at timestamp [default: `now()`]
+}
+
+Table audit_logs {
+  id integer [primary key]
+  user_id integer [ref: > users.id]
+  action varchar // CREATE, UPDATE, DELETE, LOGIN
+  table_affected varchar
+  details text
+  timestamp timestamp [default: `now()`]
+}
