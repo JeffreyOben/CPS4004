@@ -82,11 +82,25 @@ class DatabaseManager:
                 status TEXT DEFAULT 'Pending',
                 delivery_date TEXT,
                 assigned_driver_id INTEGER,
+                assigned_vehicle_id INTEGER,
                 route_details TEXT,
                 transport_cost REAL,
                 surcharges REAL,
                 payment_status TEXT DEFAULT 'Unpaid',
-                FOREIGN KEY (assigned_driver_id) REFERENCES drivers (id)
+                FOREIGN KEY (assigned_driver_id) REFERENCES drivers (id),
+                FOREIGN KEY (assigned_vehicle_id) REFERENCES vehicles (id)
+            )
+        ''')
+
+        # Shipment Items table (New for Multi-product orders)
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS shipment_items (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                shipment_id INTEGER NOT NULL,
+                inventory_id INTEGER NOT NULL,
+                quantity INTEGER NOT NULL,
+                FOREIGN KEY (shipment_id) REFERENCES shipments (id),
+                FOREIGN KEY (inventory_id) REFERENCES inventory (id)
             )
         ''')
 
@@ -115,6 +129,12 @@ class DatabaseManager:
             )
         ''')
 
+        # Migration logic for existing shipments table
+        try:
+            cursor.execute("ALTER TABLE shipments ADD COLUMN assigned_vehicle_id INTEGER REFERENCES vehicles(id)")
+        except sqlite3.OperationalError:
+            pass # Column already exists
+            
         conn.commit()
         conn.close()
 

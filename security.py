@@ -1,5 +1,6 @@
 import hashlib
 import os
+import secrets
 
 def load_encryption_key():
     """
@@ -26,6 +27,13 @@ def hash_password(password):
     """
     return hashlib.sha256(password.encode()).hexdigest()
 
+def generate_session_token():
+    """
+    Generates a secure, cryptographically strong unique token for 
+    the current session using the secrets module.
+    """
+    return secrets.token_hex(24)
+
 def xor_cipher(data):
     """
     Simple XOR-based encryption/decryption for sensitive data.
@@ -42,8 +50,3 @@ def xor_cipher(data):
         output.append(output_char)
     
     return "".join(output)
-
-# To store sensitive data like addresses in the DB, 
-# we XOR it and then often encode it to avoid DB character issues, 
-# but for a simple SQLite project, standard XOR strings might suffice 
-# as long as we focus on the logic.
