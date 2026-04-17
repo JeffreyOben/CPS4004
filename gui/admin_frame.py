@@ -1,3 +1,4 @@
+# Northshore Logistics System - Admin Management Component
 import tkinter as tk
 from tkinter import ttk, messagebox
 from gui.components import BaseDialog, ControlButton

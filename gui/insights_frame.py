@@ -1,3 +1,4 @@
+# Northshore Logistics System - Analytics & Insights Component
 import tkinter as tk
 from tkinter import ttk, messagebox
 import logging

@@ -1,3 +1,4 @@
+# Northshore Logistics System - Application Controller Component
 import tkinter as tk
 from tkinter import messagebox
 from database_manager import DatabaseManager

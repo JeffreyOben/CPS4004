@@ -1,3 +1,4 @@
+# Northshore Logistics System - Login & Security Access Component
 import tkinter as tk
 from tkinter import messagebox
 from security import hash_password

@@ -1,3 +1,4 @@
+# Northshore Logistics System - Reusable UI Component Library
 import tkinter as tk
 from tkinter import messagebox
 import sys

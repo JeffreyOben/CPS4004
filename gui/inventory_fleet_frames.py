@@ -1,3 +1,4 @@
+# Northshore Logistics System - Inventory & Fleet Management Component
 import tkinter as tk
 from tkinter import ttk, messagebox
 from gui.components import ControlButton, BaseDialog

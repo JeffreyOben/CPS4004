@@ -1,3 +1,4 @@
+# Northshore Logistics System - Operational Dashboard Component
 import tkinter as tk
 from gui.components import ScrollableFrame
 
