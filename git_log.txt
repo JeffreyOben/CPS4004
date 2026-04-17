@@ -1,0 +1,29 @@
+commit 6755ac9d62e0c5b5a9d0ca05390f25a768110dec
+Author: JeffreyOben <jeffreyobeng17@outlook.com>
+Date:   Fri Apr 17 05:22:51 2026 +0000
+
+    Integrated specialized Logistic System GUI components
+
+commit 69db13dbf5583233bc0e653e03066e05093bcf75
+Author: JeffreyOben <jeffreyobeng17@outlook.com>
+Date:   Thu Apr 16 22:16:03 2026 +0000
+
+    chore: remove northshore_logistics.db database file
+
+commit f2e4c819ed955bcac61410d084cd86f727bd16bd
+Author: JeffreyOben <jeffreyobeng17@outlook.com>
+Date:   Thu Apr 16 22:14:37 2026 +0000
+
+    CRUD  functions, logics and error corrections
+
+commit 4e2306eea1d8f56f29dd970eb28d236db18038ca
+Author: JeffreyOben <jeffreyobeng17@outlook.com>
+Date:   Wed Apr 15 02:14:26 2026 +0000
+
+    The initialize database schema, security utilities, and environment configuration for the system
+
+commit 0630aaed84fb9380f226aef951904970e01117f0
+Author: JeffreyOben <jeffreyobeng17@outlook.com>
+Date:   Tue Apr 14 16:43:32 2026 +0000
+
+    add database schema design in DBML

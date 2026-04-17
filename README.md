@@ -8,21 +8,21 @@ Northshore Logistics Ltd is a modern, high-DPI Enterprise Resource Planning (ERP
 
 ---
 
-## 🔥 Professional Features
+## Professional Features
 
-### 📦 Relational Shipment & Manifest Hub
+### Relational Shipment & Manifest Hub
 Manage complex orders through a rigorous 5-stage state machine:
 - **Multi-Product Manifests**: Add multiple products and quantities to a single order via a dynamic line-item interface.
 - **Automated Stock Reservation**: Inventory is **immediately deducted** upon order creation to "lock" stock and prevent phantom inventory.
 - **Fail-Safe Inventory Guard**: The system blocks orders that exceed available stock and provides specific warehouse-location feedback.
 
-### 📊 Operational Insights (Pandas-Powered)
+### Operational Insights (Pandas-Powered)
 - **Fleet Analytics**: Real-time calculation of vehicle utilization rates and availability.
 - **Inventory Risk Profiles**: automated identification of products below reorder thresholds.
 - **Lifecycle Visualization**: Distribution analysis of order statuses across the entire logistics chain.
 - **Export Capabilities**: Generate professional CSV reports for offline auditing.
 
-### 🔐 Enterprise-Grade Security
+### Enterprise-Grade Security
 - **Role-Based Access Control (RBAC)**: Customised interfaces for Admins, Managers, Staff, and Drivers.
 - **Sensitive Data Obfuscation**: Personal addresses protected using a character-wise XOR cipher.
 - **Credential Safety**: SHA-256 salted hashing and `secrets`-generated session tokenization.
@@ -30,7 +30,7 @@ Manage complex orders through a rigorous 5-stage state machine:
 
 ---
 
-## 🛠️ Technology Stack & Compliance
+## Technology Stack & Compliance
 This software adheres 100% to the permitted Python standard libraries:
 - **Data Handling**: `pandas`, `sqlite3`
 - **Security**: `hashlib`, `secrets`, `os`
@@ -38,7 +38,7 @@ This software adheres 100% to the permitted Python standard libraries:
 
 ---
 
-## 📥 Installation & Setup
+## Installation & Setup
 
 1. **Clone & Initialize**:
    ```bash
@@ -46,17 +46,12 @@ This software adheres 100% to the permitted Python standard libraries:
    ```
    *Note: The database is auto-migrated on the first launch. Default Admin: `admin` / `admin123`.*
 
-2. **Run Tests**:
-   ```bash
-   python tests/test_suite.py
-   ```
-
 ---
 
-## 📋 System Workflow Guide
+## System Workflow Guide
 The system is designed with a **"Logic First"** approach. The **Logistics Lifecycle Guide** (visible in the Shipment Hub when no order is selected) provides a real-time manual for role responsibilities at each stage of the delivery pipeline.
 
 ---
 
-## ⚖️ License
+## License
 This project is developed for academic purposes as part of the **CPS4004 Database Systems** assessment. All rights reserved.
