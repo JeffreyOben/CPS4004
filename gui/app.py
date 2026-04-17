@@ -14,11 +14,11 @@ class NorthshoreApp(tk.Tk):
         except:
             self.attributes('-fullscreen', True)
         
-        # 2. Global Typography (Increased by +1pt as requested)
-        self.FONT_BASE = ("Arial", 12)
-        self.FONT_BOLD = ("Arial", 12, "bold")
-        self.FONT_TITLE = ("Arial", 21, "bold")
-        self.FONT_HEADER = ("Arial", 15, "bold")
+        # 2. Global Typography (Optimized for Windows/Cross-platform)
+        self.FONT_BASE = ("Arial", 10)
+        self.FONT_BOLD = ("Arial", 10, "bold")
+        self.FONT_TITLE = ("Arial", 18, "bold")
+        self.FONT_HEADER = ("Arial", 14, "bold")
         
         # 3. Design Tokens
         self.CLR_SIDEBAR = "#1e272e"
@@ -52,7 +52,7 @@ class NorthshoreApp(tk.Tk):
     def show_main_interface(self):
         for widget in self.container.winfo_children(): widget.destroy()
             
-        header = tk.Frame(self.container, bg="#2c3e50", height=85)
+        header = tk.Frame(self.container, bg="#2c3e50", height=60)
         header.pack(side="top", fill="x")
         header.pack_propagate(False)
         
@@ -73,7 +73,7 @@ class NorthshoreApp(tk.Tk):
         main_body = tk.Frame(self.container, bg=self.CLR_BG)
         main_body.pack(side="top", fill="both", expand=True)
         
-        self.sidebar = tk.Frame(main_body, bg=self.CLR_SIDEBAR, width=300)
+        self.sidebar = tk.Frame(main_body, bg=self.CLR_SIDEBAR, width=240)
         self.sidebar.pack(side="left", fill="y")
         self.sidebar.pack_propagate(False)
         
@@ -101,7 +101,7 @@ class NorthshoreApp(tk.Tk):
         if role in ["Admin", "Manager"]:
             nav_items.append(("Fleet Management", self.show_fleet))
             nav_items.append(("Facility Control", self.show_warehouses))
-            nav_items.append(("Operational Insights", self.show_insights))
+            nav_items.append(("Operational Reports", self.show_insights))
             
         if role == "Admin":
             nav_items.append(("User Registry", self.show_users))
@@ -109,7 +109,7 @@ class NorthshoreApp(tk.Tk):
 
         self.menu_widgets = {}
         for text, command in nav_items:
-            item_frame = tk.Frame(self.sidebar, bg=self.CLR_SIDEBAR, height=70)
+            item_frame = tk.Frame(self.sidebar, bg=self.CLR_SIDEBAR, height=50)
             item_frame.pack(fill="x")
             item_frame.pack_propagate(False)
             
@@ -137,7 +137,7 @@ class NorthshoreApp(tk.Tk):
 
     def switch_frame(self, title):
         for widget in self.content_area.winfo_children(): widget.destroy()
-        self.active_menu = title.replace(" Overview", "").replace(" Hub", "").replace(" Control", "").replace(" Management", "").replace(" Registry", "").title()
+        self.active_menu = title.replace(" Overview", "").replace(" Hub", "").replace(" Control", "").replace(" Management", "").replace(" Registry", "").replace(" Reports", "").title()
         
         for text, widgets in self.menu_widgets.items():
             if text in title:
@@ -192,5 +192,5 @@ class NorthshoreApp(tk.Tk):
 
     def show_insights(self):
         from gui.insights_frame import InsightsFrame
-        self.switch_frame("Operational Insights")
+        self.switch_frame("Operational Reports")
         InsightsFrame(self.content_area, self).pack(fill="both", expand=True, padx=35, pady=20)

@@ -16,9 +16,9 @@ class LoginFrame(tk.Frame):
         card.place(relx=0.5, rely=0.5, anchor="center")
         
         tk.Label(card, text="Northshore Logistics", 
-                 font=("Arial", 28, "bold"), bg="white", fg=self.CLR_TEXT).pack(pady=(0, 10))
+                 font=("Arial", 18, "bold"), bg="white", fg=self.CLR_TEXT).pack(pady=(0, 5))
         tk.Label(card, text="SYSTEM ACCESS PORTAL", 
-                 font=("Arial", 10, "bold"), bg="white", fg="#95a5a6").pack(pady=(0, 50))
+                 font=("Arial", 8, "bold"), bg="white", fg="#95a5a6").pack(pady=(0, 30))
         
         self.create_input(card, "USERNAME / STAFF ID", "username_entry")
         self.create_input(card, "SECURE PASSWORD", "password_entry", is_pwd=True)
@@ -47,14 +47,15 @@ class LoginFrame(tk.Frame):
     def create_input(self, parent, label_text, attr_name, is_pwd=False):
         tk.Label(parent, text=label_text, bg="white", fg="#b2bec3", font=("Arial", 9, "bold")).pack(anchor="w")
         
+        # Consistent minimalist line and font
         entry = tk.Entry(parent, width=45, bg="white", fg="black", 
-                         insertbackground="black", font=("Arial", 13),
+                         insertbackground="black", font=("Arial", 11),
                          relief="flat", borderwidth=0, 
-                         highlightthickness=2,
+                         highlightthickness=1,
                          highlightbackground=self.CLR_BORDER,
                          highlightcolor=self.CLR_BLUE)
         
-        entry.pack(fill="x", pady=(5, 35), ipady=2)
+        entry.pack(fill="x", pady=(5, 25), ipady=1)
         if is_pwd: entry.config(show="*")
         setattr(self, attr_name, entry)
 

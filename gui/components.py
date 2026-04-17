@@ -72,20 +72,21 @@ class BaseDialog(tk.Toplevel):
         self.content_frame.pack(fill="both", expand=True, padx=20, pady=20)
         
         self.title_lbl = tk.Label(self.content_frame, text=title.upper(), 
-                                  font=("Arial", 15, "bold"), bg="white", fg="#2d3436")
-        self.title_lbl.pack(anchor="w", pady=(0, 25))
+                                  font=("Arial", 12, "bold"), bg="white", fg="#2d3436")
+        self.title_lbl.pack(anchor="w", pady=(0, 20))
 
     def create_field(self, parent, label_text, attr_name, is_pwd=False):
-        tk.Label(parent, text=label_text, bg="white", fg="#95a5a6", font=("Arial", 9, "bold")).pack(anchor="w")
+        tk.Label(parent, text=label_text, bg="white", fg="#95a5a6", font=("Arial", 8, "bold")).pack(anchor="w")
         
-        entry = tk.Entry(parent, bg="white", fg="#2d3436", font=("Arial", 13), 
+        # Consistent minimalist 1px border and 11pt font
+        entry = tk.Entry(parent, bg="white", fg="#2d3436", font=("Arial", 11), 
                          relief="flat", borderwidth=0, 
-                         highlightthickness=2, 
+                         highlightthickness=1, 
                          highlightbackground="black",
                          highlightcolor="#3498db",
                          insertbackground="black") 
         
-        entry.pack(fill="x", pady=(5, 15), ipady=2)
+        entry.pack(fill="x", pady=(5, 12), ipady=1)
         if is_pwd: entry.config(show="*")
         
         setattr(self, attr_name, entry)

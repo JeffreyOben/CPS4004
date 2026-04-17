@@ -33,7 +33,7 @@ class ShipmentFrame(tk.Frame):
 
         style = ttk.Style()
         style.theme_use("clam")
-        style.configure("Treeview", font=("Arial", 11), rowheight=40)
+        style.configure("Treeview", font=("Arial", 9), rowheight=30)
         
         tree_container = tk.Frame(self.left_panel, bg="white")
         tree_container.pack(fill="both", expand=True)
@@ -85,8 +85,8 @@ class ShipmentFrame(tk.Frame):
         wrapper = tk.Frame(self.right_panel, bg="#fafafa", padx=35, pady=40)
         wrapper.pack(fill="both", expand=True)
         
-        tk.Label(wrapper, text="LOGISTICS LIFECYCLE GUIDE", font=("Arial", 14, "bold"), 
-                 bg="#fafafa", fg="#2d3436").pack(anchor="w", pady=(0, 30))
+        tk.Label(wrapper, text="LOGISTICS LIFECYCLE GUIDE", font=("Arial", 11, "bold"), 
+                 bg="#fafafa", fg="#2d3436").pack(anchor="w", pady=(0, 20))
         
         guide_steps = [
             ("1. PENDING", "staff1", "Order details registered. Product inventory reserved immediately.", "#95a5a6"),
@@ -100,9 +100,9 @@ class ShipmentFrame(tk.Frame):
             f = tk.Frame(wrapper, bg="white", highlightbackground="#f1f2f6", highlightthickness=1, pady=15, padx=20)
             f.pack(fill="x", pady=6)
             
-            tk.Label(f, text=step, font=("Arial", 9, "bold"), bg="white", fg=color).pack(anchor="w")
-            tk.Label(f, text=f"Actor: {user}", font=("Arial", 8), bg="white", fg="#95a5a6").pack(anchor="w", pady=(2, 5))
-            tk.Label(f, text=desc, font=("Arial", 9), bg="white", fg="#2d3436", wraplength=350, justify="left").pack(anchor="w")
+            tk.Label(f, text=step, font=("Arial", 8, "bold"), bg="white", fg=color).pack(anchor="w")
+            tk.Label(f, text=f"Actor: {user}", font=("Arial", 7), bg="white", fg="#95a5a6").pack(anchor="w", pady=(2, 5))
+            tk.Label(f, text=desc, font=("Arial", 8), bg="white", fg="#2d3436", wraplength=280, justify="left").pack(anchor="w")
 
     def on_shipment_select(self, event):
         selected = self.tree.selection()
@@ -122,7 +122,7 @@ class ShipmentFrame(tk.Frame):
         header = tk.Frame(self.right_panel, bg="#fafafa", padx=35, pady=30)
         header.pack(fill="x")
         
-        tk.Label(header, text=f"ORDER RD-{shipment[1]}", font=("Arial", 16, "bold"), 
+        tk.Label(header, text=f"ORDER RD-{shipment[1]}", font=("Arial", 13, "bold"), 
                  bg="#fafafa", fg="#2d3436").pack(anchor="w")
         
         progress = tk.Frame(self.right_panel, bg="#dfe6e9", height=4)
@@ -158,8 +158,8 @@ class ShipmentFrame(tk.Frame):
         for lbl, val in fields:
             f = tk.Frame(info_scroll.scroll_content, bg="#fafafa")
             f.pack(fill="x", pady=8)
-            tk.Label(f, text=lbl, font=("Arial", 8, "bold"), bg="#fafafa", fg="#b2bec3", width=15, anchor="w").pack(side="left")
-            tk.Label(f, text=val, font=("Arial", 11, "bold"), bg="#fafafa", fg="#2d3436").pack(side="left")
+            tk.Label(f, text=lbl, font=("Arial", 7, "bold"), bg="#fafafa", fg="#b2bec3", width=15, anchor="w").pack(side="left")
+            tk.Label(f, text=val, font=("Arial", 9, "bold"), bg="#fafafa", fg="#2d3436").pack(side="left")
 
         # Item List
         tk.Label(info_scroll.scroll_content, text="ORDER MANIFEST", font=("Arial", 8, "bold"), bg="#fafafa", fg="#b2bec3").pack(anchor="w", pady=(20, 10))
@@ -174,7 +174,7 @@ class ShipmentFrame(tk.Frame):
         for name, qty, wh in items:
             item_f = tk.Frame(info_scroll.scroll_content, bg="white", pady=10, padx=15, highlightbackground="#f1f2f6", highlightthickness=1)
             item_f.pack(fill="x", pady=2)
-            tk.Label(item_f, text=f"{qty}x {name}", font=("Arial", 10, "bold"), bg="white", fg="#2d3436").pack(side="left")
+            tk.Label(item_f, text=f"{qty}x {name}", font=("Arial", 9, "bold"), bg="white", fg="#2d3436").pack(side="left")
             tk.Label(item_f, text=f"[{wh}]", font=("Arial", 8), bg="white", fg="#95a5a6").pack(side="right")
 
         btn_box = tk.Frame(self.right_panel, bg="#fafafa", pady=25)
@@ -258,7 +258,7 @@ class AddShipmentDialog(BaseDialog):
         self.create_field(header_f, "DESTINATION ADDRESS", "receiver_addr")
         
         # Dynamic Product List
-        tk.Label(self.content_frame, text="ORDER MANIFEST (PRODUCTS)", font=("Arial", 10, "bold"), bg="white", fg="#2d3436").pack(anchor="w", pady=(10, 10))
+        tk.Label(self.content_frame, text="ORDER MANIFEST (PRODUCTS)", font=("Arial", 9, "bold"), bg="white", fg="#2d3436").pack(anchor="w", pady=(10, 10))
         self.items_container = tk.Frame(self.content_frame, bg="white")
         self.items_container.pack(fill="x")
         

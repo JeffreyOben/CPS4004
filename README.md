@@ -16,7 +16,7 @@ Manage complex orders through a rigorous 5-stage state machine:
 - **Automated Stock Reservation**: Inventory is **immediately deducted** upon order creation to "lock" stock and prevent phantom inventory.
 - **Fail-Safe Inventory Guard**: The system blocks orders that exceed available stock and provides specific warehouse-location feedback.
 
-### Operational Insights (Pandas-Powered)
+### Operational Reports (Pandas-Powered)
 - **Fleet Analytics**: Real-time calculation of vehicle utilization rates and availability.
 - **Inventory Risk Profiles**: automated identification of products below reorder thresholds.
 - **Lifecycle Visualization**: Distribution analysis of order statuses across the entire logistics chain.

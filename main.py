@@ -1,5 +1,12 @@
 import sys
 import logging
+try:
+    if sys.platform == "win32":
+        import ctypes
+        ctypes.windll.shcore.SetProcessDpiAwareness(1)
+except Exception:
+    pass
+
 from database_manager import DatabaseManager
 from security import hash_password, xor_cipher
 from gui.app import NorthshoreApp

@@ -18,7 +18,7 @@ class InsightsFrame(tk.Frame):
         header = tk.Frame(self, bg="white")
         header.pack(fill="x", pady=(0, 25))
         
-        tk.Label(header, text="OPERATIONAL ANALYTICS ENGINE", font=("Arial", 10, "bold"), 
+        tk.Label(header, text="OPERATIONAL LOGISTICS REPORTS", font=("Arial", 10, "bold"), 
                  bg="white", fg="#95a5a6").pack(side="left")
         
         btn_f = tk.Frame(header, bg="white")
@@ -39,7 +39,7 @@ class InsightsFrame(tk.Frame):
         return pd.DataFrame(rows)
 
     def load_insights(self):
-        logging.info("Generating operational insights report.")
+        logging.info("Generating operational logistics report.")
         for widget in self.content.winfo_children(): widget.destroy()
         
         if not PANDAS_AVAILABLE:
@@ -92,12 +92,12 @@ class InsightsFrame(tk.Frame):
             table_f.pack(fill="x")
             
             tk.Label(table_f, text="SHIPMENT LIFECYCLE DISTRIBUTION (PANDAS AGGREGATION)", 
-                     font=("Arial", 8, "bold"), bg="white", fg="#95a5a6").pack(anchor="w", pady=(0, 10))
+                     font=("Arial", 7, "bold"), bg="white", fg="#95a5a6").pack(anchor="w", pady=(0, 10))
             
             for status, count in status_counts.items():
                 row = tk.Frame(table_f, bg="white", pady=5)
                 row.pack(fill="x")
-                tk.Label(row, text=status.upper(), font=("Arial", 10), bg="white", fg="#2d3436", width=20, anchor="w").pack(side="left")
+                tk.Label(row, text=status.upper(), font=("Arial", 9), bg="white", fg="#2d3436", width=20, anchor="w").pack(side="left")
                 
                 # Progress bar representation
                 total = len(s_data)
@@ -107,19 +107,19 @@ class InsightsFrame(tk.Frame):
                 pb_bg.pack_propagate(False)
                 tk.Frame(pb_bg, bg="#3498db", height=10, width=int(300 * (pct/100))).pack(side="left")
                 
-                tk.Label(row, text=f"{count} orders ({pct:.1f}%)", font=("Arial", 9, "bold"), bg="white", fg="#636e72").pack(side="left")
+                tk.Label(row, text=f"{count} orders ({pct:.1f}%)", font=("Arial", 8, "bold"), bg="white", fg="#636e72").pack(side="left")
 
         except Exception as e:
             logging.error(f"Insight Generation Failed: {e}")
-            tk.Label(self.content, text=f"Error generating insights: {e}", bg="white", fg="red").pack()
+            tk.Label(self.content, text=f"Error generating reports: {e}", bg="white", fg="red").pack()
 
     def create_insight_card(self, parent, r, c, title, val, desc, color):
         f = tk.Frame(parent, bg="white", highlightbackground="#f1f2f6", highlightthickness=1, padx=30, pady=30)
         f.grid(row=r, column=c, padx=10, pady=10, sticky="nsew")
         
-        tk.Label(f, text=title, font=("Arial", 8, "bold"), bg="white", fg="#b2bec3").pack(anchor="w")
-        tk.Label(f, text=val, font=("Arial", 32, "bold"), bg="white", fg=color).pack(anchor="w", pady=5)
-        tk.Label(f, text=desc, font=("Arial", 9), bg="white", fg="#636e72", wraplength=300, justify="left").pack(anchor="w")
+        tk.Label(f, text=title, font=("Arial", 7, "bold"), bg="white", fg="#b2bec3").pack(anchor="w")
+        tk.Label(f, text=val, font=("Arial", 20, "bold"), bg="white", fg=color).pack(anchor="w", pady=5)
+        tk.Label(f, text=desc, font=("Arial", 8), bg="white", fg="#636e72", wraplength=250, justify="left").pack(anchor="w")
 
     def export_csv(self):
         try:

@@ -56,8 +56,8 @@ class DashboardFrame(tk.Frame):
             card.pack_propagate(False)
             
             tk.Frame(card, bg=color, height=5).pack(fill="x", side="top")
-            tk.Label(card, text=label, bg="white", fg="#b2bec3", font=("Arial", 8, "bold")).pack(pady=(40, 8))
-            tk.Label(card, text=str(value), bg="white", fg=self.CLR_TEXT, font=("Arial", 28, "bold")).pack()
+            tk.Label(card, text=label, bg="white", fg="#b2bec3", font=("Arial", 7, "bold")).pack(pady=(30, 5))
+            tk.Label(card, text=str(value), bg="white", fg=self.CLR_TEXT, font=("Arial", 18, "bold")).pack()
 
     def refresh_logs(self):
         for widget in self.feed.scroll_content.winfo_children(): widget.destroy()
@@ -89,9 +89,9 @@ class DashboardFrame(tk.Frame):
                 text_frame.pack(side="left", padx=20)
                 
                 tk.Label(text_frame, text=f"{action}", bg="white", fg=self.CLR_ACCENT_BLUE, 
-                         font=("Arial", 9, "bold")).pack(anchor="w")
+                         font=("Arial", 8, "bold")).pack(anchor="w")
                 tk.Label(text_frame, text=f"{details}", bg="white", fg=self.CLR_TEXT, 
-                         font=("Arial", 10)).pack(anchor="w")
+                         font=("Arial", 9)).pack(anchor="w")
                 
                 tk.Frame(self.feed.scroll_content, bg="#f1f2f6", height=1).pack(fill="x", padx=25)
 

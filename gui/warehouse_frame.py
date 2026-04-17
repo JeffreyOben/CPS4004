@@ -22,7 +22,7 @@ class WarehouseFrame(tk.Frame):
         
         style = ttk.Style()
         style.theme_use("clam")
-        style.configure("Treeview", font=("Arial", 11), rowheight=40)
+        style.configure("Treeview", font=("Arial", 9), rowheight=30)
         
         self.tree = ttk.Treeview(tree_container, columns=("ID", "Name", "Address"), show="headings")
         vsb = ttk.Scrollbar(tree_container, orient="vertical", command=self.tree.yview)

@@ -22,7 +22,7 @@ class InventoryFrame(tk.Frame):
         
         style = ttk.Style()
         style.theme_use("clam")
-        style.configure("Treeview", font=("Arial", 11), rowheight=40)
+        style.configure("Treeview", font=("Arial", 9), rowheight=30)
         
         self.tree = ttk.Treeview(tree_container, columns=("ID", "Warehouse", "Item", "Quantity", "Reorder"), show="headings")
         vsb = ttk.Scrollbar(tree_container, orient="vertical", command=self.tree.yview)
@@ -101,11 +101,14 @@ class FleetFrame(tk.Frame):
         self.fleet_tree.heading("Capacity", text="LIMIT (KG)")
         self.fleet_tree.heading("Status", text="CURRENT STATUS")
         
+        self.fleet_tree.tag_configure('evenrow', background=self.CLR_STRIPE)
+        self.fleet_tree.tag_configure('oddrow', background="white")
+        
         self.fleet_tree.pack(side="left", fill="x", expand=True)
         vsb_v.pack(side="right", fill="y")
         
         # Driver List
-        tk.Label(self, text="AUTHORIZED DRIVER REGISTRY", font=("Arial", 10, "bold"), 
+        tk.Label(self, text="AUTHORIZED DRIVER REGISTRY", font=("Arial", 9, "bold"), 
                  bg="white", fg="#2d3436").pack(anchor="w", pady=(10,5))
         
         d_container = tk.Frame(self, bg="white")
@@ -211,9 +214,18 @@ class LogsFrame(tk.Frame):
         self.tree = ttk.Treeview(tree_container, columns=("Time", "User", "Action", "Details"), show="headings")
         vsb = ttk.Scrollbar(tree_container, orient="vertical", command=self.tree.yview)
         self.tree.configure(yscrollcommand=vsb.set)
-        self.tree.heading("Time", text="EVENT TIMESTAMP"); self.tree.heading("User", text="UID")
-        self.tree.heading("Action", text="OPERATION"); self.tree.heading("Details", text="ENTITY DETAILS")
-        self.tree.pack(side="left", fill="both", expand=True); vsb.pack(side="right", fill="y")
+        
+        self.tree.heading("Time", text="EVENT TIMESTAMP")
+        self.tree.heading("User", text="UID")
+        self.tree.heading("Action", text="OPERATION")
+        self.tree.heading("Details", text="ENTITY DETAILS")
+        
+        style = ttk.Style()
+        style.configure("Treeview", font=("Arial", 9), rowheight=30)
+        
+        self.tree.pack(side="left", fill="both", expand=True)
+        vsb.pack(side="right", fill="y")
+        
         self.load_data()
     def load_data(self):
         logs = self.controller.db.fetch_all("SELECT timestamp, user_id, action, details FROM audit_logs ORDER BY timestamp DESC")
