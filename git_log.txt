@@ -1,3 +1,15 @@
+commit 44ead66c0fde405cf12cd71ee4a5949613244645
+Author: JeffreyOben <jeffreyobeng17@outlook.com>
+Date:   Fri Apr 17 20:55:52 2026 +0000
+
+    docs: add verification instructions and troubleshooting guide to README
+
+commit 1204d827d2d103e47634e4d77d81044a3066f8e7
+Author: JeffreyOben <jeffreyobeng17@outlook.com>
+Date:   Fri Apr 17 20:29:12 2026 +0000
+
+    docs: append recent commit history to git log file
+
 commit 8f2d8f7bf016f38ea0b951db2c2223767211a611
 Author: JeffreyOben <jeffreyobeng17@outlook.com>
 Date:   Fri Apr 17 20:28:30 2026 +0000
