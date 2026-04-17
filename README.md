@@ -44,7 +44,37 @@ This software adheres 100% to the permitted Python standard libraries:
    ```bash
    python main.py
    ```
+
+2. **Verify Setup (Optional)**:
+   Run the core logic and security test suite to ensure your environment is configured correctly:
+   ```bash
+   python tests/test_suite.py
+   ```
+
    *Note: The database is auto-migrated on the first launch. Default Admin: `admin` / `admin123`.*
+   
+---
+
+## Troubleshooting & Technical Resolutions
+
+If you encounter issues during setup, check the following professional resolutions:
+
+### 1. Tkinter Missing (Python Setup)
+On some Linux distributions or custom Python installs, the GUI library (`tkinter`) is not included by default.
+- **Ubuntu/Debian**: `sudo apt-get install python3-tk`
+- **macOS/Windows**: Re-run the official Python installer and ensure "tcl/tk and IDLE" is checked.
+
+### 2. Operational Reports (Pandas Dependency)
+The Advanced Analytics module requires the `pandas` library. If the "Operational Reports" page shows a dependency warning:
+```bash
+pip install pandas
+```
+
+### 3. Windows UI Scaling
+If the interface appears oversized or blurry on Windows laptops, ensure you are running the latest version of the code. We have implemented **Windows-Specific DPI Awareness** (via `SetProcessDpiAwareness`) to fix this automatically.
+
+### 4. Database Initialization
+If you see a "Database Locked" error, ensure only one instance of the application is running at a time.
 
 ---
 
